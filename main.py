@@ -52,7 +52,36 @@ def faz_lista_jogadas_livres(tabuleiro):
 def vitoria_para(tabuleiro, sign):
     # Esta função analisa o estado do tabuleiro de modo a verificar se
     # o jogador usando '0's ou 'X's ganhou o jogo
-    print("Em construção")
+
+     # verifica as linhas
+    for linha in range(0, 3):
+        ganhou_linha = True
+        for coluna in range(0, 3):
+             if tabuleiro[linha][coluna] != sign:
+                ganhou_linha = False
+                break
+        if ganhou_linha:
+            return True
+
+     # verifica as colunas
+    for coluna in range(0, 3):
+        ganhou_coluna = True
+        for linha in range(0, 3):
+             if tabuleiro[linha][coluna] != sign:
+                ganhou_coluna = False # jogada sem sign
+                break
+        if ganhou_coluna:
+            return True
+
+     # Verifica diagonais
+    if tabuleiro[0][0] == sign and tabuleiro[1][1] == sign and tabuleiro[2][2] == sign:
+        return True
+
+    if tabuleiro[2][0] == sign and tabuleiro[1][1] == sign and tabuleiro[0][2] == sign:
+        return True
+
+    return False  # ainda não ganhou
+
 
 
 def faz_jogada(tabuleiro):
