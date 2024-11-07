@@ -31,12 +31,22 @@ def entrar_jogada(tabuleiro):
     tabuleiro[linha][coluna] = sinal_user
     return tabuleiro
 
-
+def linha_coluna( jogada ):
+    n = int(jogada)
+    linha = (n - 1) // 3
+    coluna = n - linha * 3 - 1
+    return linha, coluna
 
 def faz_lista_jogadas_livres(tabuleiro):
      # Esta função percorre o tabuleiro e constrói a lista de todos os quadrado livres;
     # a lista é constituída por tuplas, e cada tupla é o par de números de linha e coluna
-     print("Em construção")
+    livres = []
+    for linha in tabuleiro:
+        for jogada in linha:
+            if jogada != sinal_user and jogada != sinal_pc:
+                livres.append(jogada)
+    return livres
+
 
 
 def vitoria_para(tabuleiro, sign):
