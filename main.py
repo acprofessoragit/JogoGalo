@@ -86,7 +86,16 @@ def vitoria_para(tabuleiro, sign):
 
 def faz_jogada(tabuleiro):
      # Esta função faz com que o computador faça uma jogada e atualiza o tabuleiro
-    print("Em construção")
+     lista_livres = faz_lista_jogadas_livres(tabuleiro)
+     while True:
+         jogada = randrange(10) + 1
+         if str(jogada) in lista_livres:
+             break
+     print('Jogada computador:', jogada)
+     linha, coluna = linha_coluna(jogada)
+     tabuleiro[linha][coluna] = sinal_pc
+     return tabuleiro
+
 
 print('JOGO DO GALO\n\n')
 resposta = input('Joga primeiro o computador (s/n)? ')
