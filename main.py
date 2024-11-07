@@ -21,7 +21,16 @@ def mostra_tabuleiro(tabuleiro):
 def entrar_jogada(tabuleiro):
     # Esta função aceita o o tabuleiro do jogo, pergunta ao utilizador acerca da jogada
     # verifica a jogada e atualiza o tabuleiro de acordo com a decisão do jogador
-    print("Em construção")
+    lista_livres = faz_lista_jogadas_livres(tabuleiro)
+    while True:
+        jogada = input('Qual a sua jogada? ')
+        if jogada in lista_livres:
+            break
+        print('Posição',jogada,'ocupada, tente novamente!!!')
+    linha, coluna = linha_coluna(jogada)
+    tabuleiro[linha][coluna] = sinal_user
+    return tabuleiro
+
 
 
 def faz_lista_jogadas_livres(tabuleiro):
@@ -47,4 +56,6 @@ if resposta.strip().lower()[0] == 's':
     n_jogadas = 1
 else:
     n_jogadas = 0
+mostra_tabuleiro(tabuleiro)
+tabuleiro = entrar_jogada(tabuleiro)
 mostra_tabuleiro(tabuleiro)
