@@ -4,6 +4,8 @@ from random import randrange
 #     print(randrange(8))
 
 tabuleiro = [ ['1','2','3'],['4','5','6'],['7','8','9']]
+sinal_pc = 'X'
+sinal_user = 'O'
 
 def mostra_tabuleiro(tabuleiro):
     # Esta função aceita um parâmetro contendo o estado corrente do tabuleiro
@@ -38,5 +40,11 @@ def faz_jogada(tabuleiro):
      # Esta função faz com que o computador faça uma jogada e atualiza o tabuleiro
     print("Em construção")
 
-
+print('JOGO DO GALO\n\n')
+resposta = input('Joga primeiro o computador (s/n)? ')
+if resposta.strip().lower()[0] == 's':
+    tabuleiro[1][1] = sinal_pc
+    n_jogadas = 1
+else:
+    n_jogadas = 0
 mostra_tabuleiro(tabuleiro)
