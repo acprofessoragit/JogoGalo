@@ -96,5 +96,23 @@ if resposta.strip().lower()[0] == 's':
 else:
     n_jogadas = 0
 mostra_tabuleiro(tabuleiro)
-tabuleiro = entrar_jogada(tabuleiro)
-mostra_tabuleiro(tabuleiro)
+while True:
+    tabuleiro = entrar_jogada(tabuleiro)
+    mostra_tabuleiro(tabuleiro)
+    if vitoria_para(tabuleiro,sinal_user):
+        print('Parabéns ganhou.')
+        break
+    n_jogadas += 1
+    if n_jogadas == 9:
+        print("Empate.")
+        break
+    tabuleiro = faz_jogada(tabuleiro)
+    mostra_tabuleiro(tabuleiro)
+    n_jogadas += 1
+    if vitoria_para(tabuleiro,sinal_pc):
+        print('Perdeu!!!')
+        break
+    if n_jogadas == 9:
+        print("Empate.")
+        break
+
